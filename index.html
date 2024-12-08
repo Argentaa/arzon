@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arzon - Desenvolvimento Web</title>
+    <title>ArzonTech - Desenvolvimento Web</title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">ARZON</div>
+        <div class="logo">ARZONTECH</div>
         <ul>
           <li><a href="#inicio">Início</a></li>
           <li><a href="#servicos">Serviços</a></li>
@@ -46,27 +46,32 @@
             <h3>Aplicações Web</h3>
             <p>Sistemas web complexos e personalizados</p>
           </div>
+          <div class="service-card">
+            <div class="service-icon">🧑‍🎨</div>
+            <h3>Design de Imagens</h3>
+            <p>Flyers e Banners personalizados para sua empresa ou produto</p>
+          </div>
         </div>
       </section>
 
       <section id="portfolio" class="portfolio">
         <h2>Portfólio</h2>
         <div class="portfolio-grid">
-          <div class="portfolio-item1">
+          <div class="portfolio-item1" data-image="public/astro.png">
             <div class="portfolio-content">
               <h3>Astro Tubos</h3>
               <p>E-commerce - Sistema Web</p>
             </div>
           </div>
-          <div class="portfolio-item2">
+          <div class="portfolio-item2" data-image="public/woods.png">
             <div class="portfolio-content">
               <h3>Shampoo Woods</h3>
               <p>Landing Page</p>
             </div>
           </div>
-          <div class="portfolio-item3">
+          <div class="portfolio-item3" data-image="public/europa.png">
             <div class="portfolio-content">
-              <h3>Vegetal do Brasil</h3>
+              <h3>Europa em 60 dias</h3>
               <p>Landing Page</p>
             </div>
           </div>
@@ -76,11 +81,11 @@
       <section id="contato" class="contact">
         <h2>Entre em Contato</h2>
         <div class="contact-container">
-          <div class="contact-info">
+          <div class="contact-info">  
             <h3>Informações de Contato</h3>
             <p>📧 contato@arzon.com</p>
             <p>📱 (11) 99999-9999</p>
-            <p>📍 São Paulo, SP</p>
+            <p>📍 Seberi, RS</p>
           </div>
           <form class="contact-form">
             <input type="text" placeholder="Nome" required>
@@ -99,3 +104,52 @@
     </footer>
   </body>
 </html>
+
+<script>
+
+function openLightbox(imageSrc) {
+  // Cria o modal (lightbox)
+  const lightbox = document.createElement('div');
+  lightbox.classList.add('lightbox');
+  lightbox.style.display = 'flex';
+
+  // Adiciona a imagem no modal
+  const img = document.createElement('img');
+  img.src = imageSrc;
+
+  // Botão de fechar
+  const closeBtn = document.createElement('button');
+  closeBtn.innerText = 'Fechar';
+  closeBtn.onclick = () => {
+    lightbox.remove();
+    document.removeEventListener('keydown', handleKeyDown); // Remove o evento ao fechar
+  };
+
+  // Função para fechar ao pressionar ESC
+  function handleKeyDown(event) {
+    if (event.key === 'Escape') {
+      lightbox.remove();
+      document.removeEventListener('keydown', handleKeyDown); // Remove o evento
+    }
+  }
+
+  // Adiciona o evento de tecla pressionada
+  document.addEventListener('keydown', handleKeyDown);
+
+  // Adiciona os elementos ao modal
+  lightbox.appendChild(img);
+  lightbox.appendChild(closeBtn);
+  document.body.appendChild(lightbox);
+}
+
+// Adiciona eventos de clique nos itens do portfólio
+document.querySelectorAll('.portfolio-item1, .portfolio-item2, .portfolio-item3').forEach(item => {
+  item.addEventListener('click', function() {
+    const imageSrc = this.getAttribute('data-image');
+    openLightbox(imageSrc);
+  });
+});
+
+
+
+</script>

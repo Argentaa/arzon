@@ -13,6 +13,44 @@
   box-sizing: border-box;
 }
 
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinha o topo */
+  overflow-y: auto; /* Permite rolagem vertical */
+  z-index: 1001;
+  padding: 20px; /* Espaçamento nas laterais */
+}
+
+.lightbox img {
+  width: auto; /* Mantém o tamanho original da largura */
+  height: auto; /* Mantém o tamanho original da altura */
+  max-width: 1200px; /* Limita a largura máxima */
+  max-height: none; /* Permite que a altura ultrapasse o viewport */
+  margin: 20px auto; /* Centraliza horizontalmente */
+}
+
+
+.lightbox button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
