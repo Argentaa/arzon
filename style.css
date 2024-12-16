@@ -69,6 +69,8 @@ header {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
+
+
 nav {
   max-width: 1200px;
   margin: 0 auto;
@@ -76,6 +78,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .logo {
